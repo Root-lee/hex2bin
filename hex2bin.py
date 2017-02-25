@@ -7,7 +7,7 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt4 import QtCore, QtGui
-import sys ,os 
+import sys ,os ,time
 from threads import BigWorkThread
 
 try:
@@ -26,6 +26,7 @@ except AttributeError:
 
 class Ui_dialog(QtGui.QWidget):
     def setupUi(self, dialog):
+        self.process = 0 ;
         dialog.setFixedSize(400,300)
         dialog.setObjectName(_fromUtf8("dialog"))
         dialog.resize(400, 300)
@@ -78,6 +79,7 @@ class Ui_dialog(QtGui.QWidget):
         self.bwThread = BigWorkThread(file_path)
         self.connect(self.bwThread,QtCore.SIGNAL("where"),self.update)
         self.connect(self.bwThread,QtCore.SIGNAL("finish_show"),self.finish_show)
+        self.connect(self.bwThread,QtCore.SIGNAL("start_matlab"),self.start_matlab)
         self.bwThread.start()
     def start_update_ui(self):
         self.progressBar.show()  #显示进度条
@@ -97,7 +99,12 @@ class Ui_dialog(QtGui.QWidget):
         self.lineEdit.setText("%s" %filename)
     def update(self,where):
         self.progressBar.setProperty("value",where)
-    
+        
+    def start_matlab(self):  #本函数主要用于进度条的优化显示
+        for i in range(4):
+            self.process = self.process + 20
+            self.progressBar.setProperty("value",self.process)
+            time.sleep(1)
     def finish_show(self):
 
         self.startButton.setEnabled(True) #使能开始按钮

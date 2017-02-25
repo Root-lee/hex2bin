@@ -24,6 +24,7 @@ class BigWorkThread(QtCore.QThread):
         self.emit(QtCore.SIGNAL("finish_show"))
         
     def gen_txt_file(self):
+        self.emit(QtCore.SIGNAL("start_matlab"))
         pythoncom.CoInitialize()
         #from win32com.client import Dispatch, constants
         h = Dispatch("Matlab.application")  #打开Matlab进程
