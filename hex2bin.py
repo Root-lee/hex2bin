@@ -58,17 +58,17 @@ class Ui_dialog(QtGui.QWidget):
         QtCore.QObject.connect(self.selectButton, QtCore.SIGNAL(_fromUtf8("clicked()")), self.showDialog)
 
     def retranslateUi(self, dialog):
-        dialog.setWindowTitle(_translate("dialog", "hex2bin转换软件", None))
+        dialog.setWindowTitle(_translate("dialog", "幅相校正软件", None))
         self.startButton.setText(_translate("dialog", "开始转换", None))
-        self.selectButton.setText(_translate("dialog", "选择txt文件", None))
+        self.selectButton.setText(_translate("dialog", "选择AD数据文件", None))
         self.textBrowser.setHtml(_translate("dialog", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'SimSun\'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">软件说明：</span></p>\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#ff0000;\">***.txt</span><span style=\" color:#0000ff;\">  </span><span style=\" color:#000000;\">==&gt;&gt;</span><span style=\" color:#0000ff;\">   ***.dat</span></p>\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#ff0000;\">AD采集数据.dat</span><span style=\" color:#0000ff;\">  </span><span style=\" color:#000000;\">==&gt;&gt;</span><span style=\" color:#0000ff;\">幅相系数记录.dat</span></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">----------------------------------</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">本软件适用于将声纳的十六进制幅相校正悉数文件转换为适用于写入声纳flash中的文件。</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">本软件适用于将声纳采集到的AD数据文件计算得到幅相校正悉数，并转换为适用于写入声纳flash中的文件。</p>\n"
 "<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">---Powered by Root_lee</p></body></html>", None))
 
     #子进程处理数据
@@ -93,7 +93,7 @@ class Ui_dialog(QtGui.QWidget):
     #文件打开框        
     def showDialog(self):
         #filename = QtGui.QFileDialog.getExistingDirectory(self, 'Open file','/home')
-        filename = QtGui.QFileDialog.getOpenFileName(self, 'Open file','C:',"Text files (*.txt)")
+        filename = QtGui.QFileDialog.getOpenFileName(self, 'Open file','C:',u"AD采集数据 (*.dat)")
         self.lineEdit.setText("%s" %filename)
     def update(self,where):
         self.progressBar.setProperty("value",where)
