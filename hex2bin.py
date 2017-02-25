@@ -68,7 +68,7 @@ class Ui_dialog(QtGui.QWidget):
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">软件说明：</span></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" color:#ff0000;\">AD采集数据.dat</span><span style=\" color:#0000ff;\">  </span><span style=\" color:#000000;\">==&gt;&gt;</span><span style=\" color:#0000ff;\">幅相系数记录.dat</span></p>\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">----------------------------------</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">本软件适用于将声纳采集到的AD数据文件计算得到幅相校正悉数，并转换为适用于写入声纳flash中的文件。</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">本软件适用于将声纳采集到的AD数据文件计算得到幅相校正系数，并转换为适用于写入声纳flash中的文件。</p>\n"
 "<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">---Powered by Root_lee</p></body></html>", None))
 
     #子进程处理数据

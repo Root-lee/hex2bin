@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 from PyQt4 import QtCore, QtGui
-#from win32com.client import Dispatch
+from win32com.client import Dispatch
 #import win32com
 import time,os
+import pythoncom
 
 #继承 QThread 类
 class BigWorkThread(QtCore.QThread):
@@ -23,8 +24,10 @@ class BigWorkThread(QtCore.QThread):
         self.emit(QtCore.SIGNAL("finish_show"))
         
     def gen_txt_file(self):
-        from win32com.client import Dispatch, constants
+        pythoncom.CoInitialize()
+        #from win32com.client import Dispatch, constants
         h = Dispatch("Matlab.application")  #打开Matlab进程
         h.Visible = 0  #隐藏Matlab界面
         h.Feval('cd',0,0,os.getcwd())  #Matlab工作路径切换到当前软件目录
         h.Feval('generate',0,0,self.path)  #调用generate.m中的函数，产生txt格式文件
+        pythoncom.CoUninitialize()

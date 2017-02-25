@@ -81,12 +81,12 @@ end
 
 
 
-figure;
-subplot(4,1,1);plot(channel_i_dec(3,:));
-subplot(4,1,2);plot(channel_i_dec(5,:));
-subplot(4,1,3);plot(channel_i_dec(127,:));
-subplot(4,1,4);plot(channel_i_dec(151,:));
-xlabel('第4,6,128,152号通道')
+% figure;
+% subplot(4,1,1);plot(channel_i_dec(3,:));
+% subplot(4,1,2);plot(channel_i_dec(5,:));
+% subplot(4,1,3);plot(channel_i_dec(127,:));
+% subplot(4,1,4);plot(channel_i_dec(151,:));
+% xlabel('第4,6,128,152号通道')
 
 
 
@@ -114,7 +114,7 @@ for count_i=1:179
     phase_i(count_i)=angle( fft_channel_i(count_i,position_i(count_i)) );
 end
 
-figure;plot(abs(fft_channel_1'));hold on;plot(abs(fft_channel_i'));
+% figure;plot(abs(fft_channel_1'));hold on;plot(abs(fft_channel_i'));
 
 
 % % 计算补偿系数
@@ -128,14 +128,14 @@ for count_i=1:179
     phase_correction_coefficient(count_i+1)=exp(j*(delta_phase(count_i+1)));
 end
 
-figure;
-dB=20*log10(amplitude_correction_coe);
-plot(dB,'.');grid on;
-xlabel('通道号'); ylabel('归一化增益/dB')
-figure;
-plot(amplitude_correction_coe,'.');grid on;
-xlabel('通道号'); ylabel('与参考通道的比值')
-figure;
+% figure;
+% dB=20*log10(amplitude_correction_coe);
+% plot(dB,'.');grid on;
+% xlabel('通道号'); ylabel('归一化增益/dB')
+% figure;
+% plot(amplitude_correction_coe,'.');grid on;
+% xlabel('通道号'); ylabel('与参考通道的比值')
+% figure;
 for k=1:length(delta_phase)
     if delta_phase(k)>pi
         delta_phase(k)=delta_phase(k)-2*pi;
@@ -145,11 +145,11 @@ for k=1:length(delta_phase)
         delta_phase(k)=delta_phase(k);
     end
 end
-plot(delta_phase,'.');grid on;
-xlabel('通道号'); ylabel('与参考通道的弧度误差')
-figure;
-plot(delta_phase*180/pi,'.');grid on;
-xlabel('通道号'); ylabel('与参考通道的角度误差')
+% plot(delta_phase,'.');grid on;
+% xlabel('通道号'); ylabel('与参考通道的弧度误差')
+% figure;
+% plot(delta_phase*180/pi,'.');grid on;
+% xlabel('通道号'); ylabel('与参考通道的角度误差')
 
 
 % %  生成FPGA存储系数
